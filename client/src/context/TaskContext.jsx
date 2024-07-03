@@ -13,7 +13,6 @@ export const TaskProvider = ({ children }) => {
         "high": 0,
         "low": 0,
         "moderate": 0,
-        "high": 0,
         "due date": 0
     });
 

@@ -8,16 +8,12 @@ import path from "path";
 import authRoutes from './routes/auth.routes.js';
 import taskRoutes from './routes/task.routes.js';
 import connectToMongoDB from './utils/connectToMongoDB.js';
+
 dotenv.config(); // Load environment variables from .env file
-
-
-
-
 const app = express();
 const port = process.env.PORT || 8000;
 const __dirname = path.resolve();
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, "/client/build")))
 const corsOptions = {
     credentials: true,
     origin: "*",
@@ -30,6 +26,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/auth",authRoutes)
 app.use("/api/task",taskRoutes)
+
+
+app.use(express.static(path.join(__dirname, "/client/dist")))
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname,"client","dist", "index.html"));
+    // res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
 
 app.listen(port, () => {
     connectToMongoDB();
