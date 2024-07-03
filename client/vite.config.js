@@ -5,12 +5,12 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   server: {
-    // proxy: {
-    //   "/api": {
-    //     target: "http://localhost:8000",
-    //     changeOrigin: true,
-    //     secure: false,
-    //   }
-    // }
+    proxy: {
+      "/api": {
+        target: "https://pro-manage-gamma.vercel.app",
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   }
 })
