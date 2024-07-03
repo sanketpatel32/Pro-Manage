@@ -1,10 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { UserContext } from './UserContext';
 
 // Create TaskContext
 export const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
+    const { isLoggedIn } = useContext(UserContext);
+
     const [AnalyticData, setAnalyticData] = useState({
         "To do": 0,
         "Backlog": 0,
@@ -20,10 +23,10 @@ export const TaskProvider = ({ children }) => {
     const fetchAnalyticsData = async () => {
         try {
             const response = await axios.get('/api/task/analytics', { withCredentials: true });
-            console.log(response.data)
             setAnalyticData(response.data);
         } catch (error) {
             console.error('Error fetching analytics data:', error.message);
+            // Handle error (e.g., set default analytic data or show error message)
         }
     };
 
@@ -31,19 +34,35 @@ export const TaskProvider = ({ children }) => {
     const fetchAndOrganizeTasks = async () => {
         try {
             const response = await axios.get(`/api/task/getTask?filter=${filteredDate}`);
+
+            if (response.status !== 200) {
+                throw new Error(`Failed to fetch tasks (HTTP ${response.status})`);
+            }
+
             const tasksData = response.data.manipulatedTaskObj;
-            console.log(tasksData)
-            setTasks({
+
+            if (!tasksData) {
+                throw new Error('Tasks data not found or invalid format');
+            }
+
+            const organizedTasks = {
                 toDoTasks: tasksData["To do"] || [],
                 inProgressTasks: tasksData["In progress"] || [],
                 backlogTasks: tasksData["Backlog"] || [],
                 doneTasks: tasksData["Done"] || [],
-            });
+            };
 
-            // After setting tasks, fetch analytics data
+            setTasks(organizedTasks);
             fetchAnalyticsData();
         } catch (error) {
-            console.error('Error fetching tasks:', error.message);
+            console.error('Error fetching and organizing tasks:', error.message);
+            // Handle error (e.g., set tasks to default state or show error message)
+            setTasks({
+                toDoTasks: [],
+                inProgressTasks: [],
+                backlogTasks: [],
+                doneTasks: [],
+            });
         }
     };
 
@@ -57,8 +76,10 @@ export const TaskProvider = ({ children }) => {
     const [refreshTasks, setRefreshTasks] = useState(false); // State to trigger re-fetch
 
     useEffect(() => {
-        fetchAndOrganizeTasks();
-    }, [filteredDate, refreshTasks]); // Dependency array includes refreshTasks
+        if (isLoggedIn) {
+            fetchAndOrganizeTasks();
+        }
+    }, [isLoggedIn, filteredDate, refreshTasks]); // Dependency array includes isLoggedIn, filteredDate, and refreshTasks
 
     return (
         <TaskContext.Provider value={{ filteredDate, setFilteredDate, tasks, setRefreshTasks, AnalyticData }}>
