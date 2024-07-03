@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://pro-manage-gamma.vercel.app",
+        target: "https://pro-manage-gamma.vercel.app/api",
         changeOrigin: true,
         secure: false,
       }
