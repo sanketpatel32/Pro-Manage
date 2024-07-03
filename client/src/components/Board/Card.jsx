@@ -106,7 +106,7 @@ const Card = ({ title, priority, checklist, TaskId, TaskStatus, expandAll, dueDa
   };
 
   const clipBoard = async () => {
-    const stringToCopy = `http://localhost:5173/task/${TaskId}`;
+    const stringToCopy = `https://pro-manage-s2cp.onrender.com/task/${TaskId}`;
     try {
       await navigator.clipboard.writeText(stringToCopy);
       setThreeDotToggler(!threeDotToggler);

@@ -13,7 +13,7 @@ const UserProvider = ({ children }) => {
             setUserDetails(retrievedObject);
             setIsLoggedIn(true);
         }
-    }, []);
+    }, [userDetails]);
 
     return (
         <UserContext.Provider value={{ userDetails, setUserDetails, isLoggedIn, setIsLoggedIn }}>

@@ -120,3 +120,22 @@
   font-size: 18px; /* Adjust size as needed */
   color: green; /* Green tick */
 }
+
+@media only screen and (max-width: 672px){
+  .container{
+    width: 100%;
+    align-items: center;
+  }
+  .heading{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .heading img{
+    margin:  0 5vw 0 0;
+  }
+  .task{
+    width: 75vw;
+    max-height: 80vh;
+  }
+}

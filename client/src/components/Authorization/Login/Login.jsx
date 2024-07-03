@@ -13,23 +13,23 @@ const Login = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const extractJwtFromCookie = () => {
-        const cookieValue = document.cookie
-            .split('; ')
-            .find(cookie => cookie.startsWith('__clerk_db_jwt='));
+    // const extractJwtFromCookie = () => {
+    //     const cookieValue = document.cookie
+    //         .split('; ')
+    //         .find(cookie => cookie.startsWith('__clerk_db_jwt='));
 
-        if (cookieValue) {
-            return cookieValue.split('=')[1];
-        } else {
-            console.error('Failed to extract JWT token from the cookie.');
-            return null;
-        }
-    };
+    //     if (cookieValue) {
+    //         return cookieValue.split('=')[1];
+    //     } else {
+    //         console.error('Failed to extract JWT token from the cookie.');
+    //         return null;
+    //     }
+    // };
 
-    const saveTokenToLocalStorage = (token) => {
-        localStorage.setItem('jwt', token);
-        console.log('JWT token saved successfully:', token);
-    };
+    // const saveTokenToLocalStorage = (token) => {
+    //     localStorage.setItem('jwt', token);
+    //     console.log('JWT token saved successfully:', token);
+    // };
 
     const displayToast = (message, type = 'success') => {
         toast(message,{type: type});
@@ -40,10 +40,6 @@ const Login = () => {
         axios.post('/api/auth/login', formData, { withCredentials: true })
             .then((res) => {
                 const { token } = res.data;
-                const jwtToken = extractJwtFromCookie();
-                if (jwtToken) {
-                    saveTokenToLocalStorage(jwtToken);
-                }
                 localStorage.setItem('currentUser', JSON.stringify(res.data));
                 displayToast('Login successful!');
                 navigate('/');
@@ -53,7 +49,6 @@ const Login = () => {
                 setWarning(true);
                 displayToast('Invalid credentials','error');
             });
-        console.log('Form Data:', formData);
     };
 
     return (
