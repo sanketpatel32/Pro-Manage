@@ -56,9 +56,6 @@ const getAllTask = async (req, res) => {
     res.status(StatusCodes.OK).json({ manipulatedTaskObj });
 };
 
-// @desc create task
-// @desc post /api/v1/tasks
-// @desc private
 const createTask = async (req, res) => {
     let newTask = {};
     if (req.body["due date"]) {
@@ -75,9 +72,7 @@ const createTask = async (req, res) => {
     res.status(StatusCodes.CREATED).json({ task });
 };
 
-// @desc Get analytics of task
-// @desc Get /api/v1/tasks/analytics
-// @desc private
+
 const getAnalytics = async (req, res) => {
     const tasks = await TaskModel.find({ createdBy: req.user._id });
     const statusWiseAnalyitcs = tasks.reduce(
@@ -137,9 +132,7 @@ const getAnalytics = async (req, res) => {
         "due date": notCompletedTasksWithDueDateAnalytics,
     });
 };
-// @desc update single checklist
-// @desc Get /api/v1/task/:taskId/checklist/:checklistId
-// @desc private
+
 const updateChecklistById = async (req, res) => {
     const { taskId, checklistId } = req.params;
     const task = await TaskModel.findById(taskId);
@@ -152,18 +145,12 @@ const updateChecklistById = async (req, res) => {
     res.status(StatusCodes.OK).json({ task });
 };
 
-// @desc Get single task
-// @desc Get /api/v1/tasks/single/:taskId
-// @desc private
 const getTask = async (req, res) => {
     const { taskId } = req.params;
     const task = await TaskModel.findById(taskId)
     res.status(StatusCodes.OK).json({ task });
 };
 
-// @desc edit single task
-// @desc (put/patch) /api/v1/tasks/single/:taskId
-// @desc private
 const editTask = async (req, res) => {
     const { taskId } = req.params;
 
@@ -185,9 +172,6 @@ const editTask = async (req, res) => {
     res.status(StatusCodes.OK).json({ updatedTask });
 };
 
-// @desc delete single task
-// @desc delete /api/v1/tasks/single/:taskId
-// @desc private
 const deleteTask = async (req, res) => {
     const { taskId } = req.params;
     await TaskModel.findByIdAndDelete(taskId);
