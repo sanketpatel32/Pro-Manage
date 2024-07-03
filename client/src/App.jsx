@@ -4,7 +4,7 @@ import Authorization from './pages/Authorization/Authorization';
 import { useContext } from 'react';
 import { UserContext } from './context/UserContext.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
-
+import ShareTask from './components/sharedTask/shareTask.jsx';
 function App() {
   const { isLoggedIn } = useContext(UserContext);
 
@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={isLoggedIn ? <Dashboard /> : <Navigate to="/auth" />} />
         <Route path="/auth" element={<Authorization />} />
+        <Route path='/task/:taskId' element= {<ShareTask/>}/>
       </Routes>
     </>
   );

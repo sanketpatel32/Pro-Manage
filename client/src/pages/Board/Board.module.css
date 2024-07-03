@@ -7,17 +7,30 @@
   height: 100vh;
 }
 
+.name{
+  font-weight: 600;
+}
+.date {
+  font-size: 1rem;
+  color: #707070;
+}
 .heading {
+  font-size: 1.3rem;
   width: 77vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 2vh;
 }
 
+
 .subHeading {
+  font-size: 1rem;
+  font-weight: 500;
   width: 77vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 2vh 0;
 }
 .content{
@@ -25,4 +38,8 @@
   height: 100%;
   flex-direction: row;
   overflow-x: scroll;
+}
+.classFilter{
+  font-size: 0.9rem;
+  border:none;
 }

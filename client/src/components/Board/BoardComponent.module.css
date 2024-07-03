@@ -1,5 +1,5 @@
 .container {
-  height: 78vh;
+  max-height: 75vh;
   background-color: #eef2f5;
   min-width: 27vw;
   margin: 3vh 2vw 0 0;

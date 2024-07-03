@@ -17,7 +17,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <TaskProvider>
           <App />
-          <ToastContainer />
+          <ToastContainer 
+          position="top-center"
+            autoClose={1000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover />
         </TaskProvider>
       </BrowserRouter>
     </UserProvider>

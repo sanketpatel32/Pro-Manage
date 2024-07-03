@@ -9,6 +9,7 @@ import { completedTask } from '../../utils/calculate.js';
 import { dueDateExceeded } from '../../utils/calculate.js';
 import TodoModal from "./Modal/TodoModal.jsx"
 import { InterfaceContext } from '../../context/InterfaceContext.jsx';
+import { toast } from 'react-toastify';
 
 const Card = ({ title, priority, checklist, TaskId, TaskStatus, expandAll, dueDate }) => {
   const [taskToEdit, setTaskToEdit] = useState(null);
@@ -44,11 +45,11 @@ const Card = ({ title, priority, checklist, TaskId, TaskStatus, expandAll, dueDa
   const getBackgroundColor = (priority) => {
     switch (priority.toLowerCase()) {
       case 'high':
-        return 'red'; // Example color for High priority
+        return '#cf3636'; // Example color for High priority
       case 'medium':
-        return 'yellow'; // Example color for Medium priority
+        return '#18b0ff'; // Example color for Medium priority
       case 'low':
-        return 'green'; // Example color for Low priority
+        return '#63c05b'; // Example color for Low priority
       default:
         return 'gray'; // Default color if priority is not recognized
     }
@@ -104,6 +105,17 @@ const Card = ({ title, priority, checklist, TaskId, TaskStatus, expandAll, dueDa
     setThreeDotToggler(false);
   };
 
+  const clipBoard = async () => {
+    const stringToCopy = `http://localhost:5173/task/${TaskId}`;
+    try {
+      await navigator.clipboard.writeText(stringToCopy);
+      setThreeDotToggler(!threeDotToggler);
+      toast("Copy to clipboard",{type:"success"});
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+
 
   return (
     <div className={styles.container}>
@@ -119,8 +131,8 @@ const Card = ({ title, priority, checklist, TaskId, TaskStatus, expandAll, dueDa
           {threeDotToggler &&
             <div className={styles.threeDotModal} style={{ display: threeDotToggler ? 'flex' : 'none', cursor: threeDotToggler ? 'pointer' : 'default' }}>
               <div className={styles.threeDotsOptions} onClick={editHandler}>Edit</div>
-              {taskCreateModal && <TodoModal taskToEdit={taskToEdit} onClose = {handleModalClose}/>}
-              <div className={styles.threeDotsOptions}>Share</div>
+              {taskCreateModal && <TodoModal taskToEdit={taskToEdit} onClose={handleModalClose} />}
+              <div className={styles.threeDotsOptions} onClick={clipBoard}>Share</div>
               <div className={styles.threeDotsOptions} style={{ color: 'red' }} onClick={deleteHandler}>Delete</div>
             </div>
           }

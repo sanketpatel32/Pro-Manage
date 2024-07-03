@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 95vh;
+}
+
+.heading {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 15px 0;
+  width: 15vw;
+  justify-content: space-around;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40vw;
+  border: 1px solid #b5cfee;
+  border-radius: 15px;
+  max-height: 75vh;
+}
+.priority {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.checklist {
+  margin: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.checklistTask {
+  overflow-y: scroll;
+}
+.checklistTask::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.checklistTask::-webkit-scrollbar-track {
+  border-radius: 15px;
+  /* background: #b5cfee; */
+  height: 40px;
+}
+
+/* Handle */
+.checklistTask::-webkit-scrollbar-thumb {
+  background: #b5cfee;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.checklistTask::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.checklistTask div {
+  margin: 10px 0;
+  /* Your checklist task item styles */
+}
+
+.checklistItems {
+  display: flex;
+  border: 1px solid #b5cfee;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox + label {
+  position: relative;
+  padding-left: 25px; /* Adjust based on your needs */
+  display: inline-block;
+}
+
+/* Style the custom checkbox */
+.checkbox + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 3px; /* Rounded corners */
+  background: white;
+  margin: 0 10px 0 0;
+}
+
+/* Show the green tick when checked */
+.checkbox:checked + label::after {
+  content: "✓"; /* Unicode character for the tick */
+  position: absolute;
+  left: 3px; /* Adjust position as needed */
+  top: -1px; /* Adjust position as needed */
+  font-size: 18px; /* Adjust size as needed */
+  color: green; /* Green tick */
+}

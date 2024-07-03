@@ -156,7 +156,7 @@ const TodoModal = ({ taskToEdit ,onClose}) => {
           .then((res) => {
             console.log("Updated Field")
             setRefreshTasks(prev => !prev);
-            toast.success("Task edited");
+            toast.success("Task edited",);
             onClose();
             setTaskCreateModal(false);
           })

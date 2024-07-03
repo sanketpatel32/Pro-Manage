@@ -24,15 +24,7 @@ const LogoutModal = () => {
         e.preventDefault();
         axios.post('/api/auth/logout')
             .then((res) => {
-                toast.success('Logout successful!', {
-                    position: "top-right",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                toast('Logout successful!', { type: "success" });
                 localStorage.removeItem('currentUser');
                 setLogOutModal(false);
                 navigate('/auth');

@@ -20,13 +20,13 @@ const Board = () => {
       </div>
 
       <div className={styles.subHeading}>
-        <div>Board</div>
+        <div className={styles.board}>Board</div>
         <div className={styles.filter}>
           <select
             name="filter"
             id="filter"
             value={filteredDate}
-            className="select-filter"
+            className={styles.classFilter}
             onChange={e => setFilteredDate(e.target.value)}
           >
             <option value="today">Today</option>

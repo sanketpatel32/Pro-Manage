@@ -13,16 +13,7 @@ const Register = () => {
   };
 
   const displayToast = (message, type = 'success') => {
-    toast(message, {
-      type,
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toast(message);
   };
  
   const handleSubmit = (e) => {
