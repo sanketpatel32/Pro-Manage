@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/auth",authRoutes)
 app.use("/api/task",taskRoutes)
+app.use("/check", (req, res) => res.json({ "message": "Checked" }));
 
 
 app.use(express.static(path.join(__dirname, "/client/dist")))
