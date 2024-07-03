@@ -1,0 +1,156 @@
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal:hover {
+  cursor: not-allowed;
+}
+/* Modal Content/Box */
+.modal_content {
+  background-color: #fefefe;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 2% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 700px;
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.modal_content:hover {
+  cursor: default !important;
+}
+.container {
+  display: flex;
+  width: 700px;
+  justify-content: start;
+  flex-direction: column;
+}
+.heading {
+  font-size: 1.5rem;
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: start;
+  align-content: start;
+}
+.inputTitle {
+  height: 30px;
+  padding: 2px 10px 2px 10px;
+  font-size: 1rem;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.inputTitle:focus {
+  outline: none; /* Remove the outline */
+  border: 1px solid #e2e2e2;
+  border-radius: 0 5px 5px 0;
+  box-shadow: none;
+}
+.priorityDiv {
+  display:flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
+}
+.priorityTitle{
+    font-size: 1rem;
+  display: flex;
+
+  margin-right: 20px;
+  justify-content: start;
+  align-content: start;
+}
+.priorityBox{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #E2E2E2;
+  border-radius: 10px;
+  padding-right: 20px;
+  color: #767575;
+  margin-right: 10px;
+
+}
+.priorityBox :hover{
+  cursor: pointer;
+}
+
+.priorityBox .circle{
+  height: 7px;
+  width: 7px;
+  border-radius: 100%;
+  background-color: black;
+  margin: 0 5px;
+}
+
+
+
+.checkList{
+    max-height: 11rem;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+
+    padding: 0 0.2rem;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: var(--primary-400);
+    }
+  } 
+
+
+
+
+
+
+
+
+/* -------------------------Bottom Div --------------------------------- */
+.bottomDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.calendar{
+position: fixed;
+bottom:120px;
+}
+
+.bottomDivRightSide{
+    display: flex;
+  flex-direction: row;
+}
+.bottomOptions{
+  display: flex;
+  width : 170px;
+  height: 40px;
+  border: 1px solid #E2E2E2;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left: 20px;
+  font-size: 1.1rem;
+  color: #707070;
+}

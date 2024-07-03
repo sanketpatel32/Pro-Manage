@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+}
+
+/* ------------------------------------------------ */
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100vh;
+  background-color: #17a2b8;
+  color: #ffffff;
+}
+.left img {
+  padding: 2rem 1rem;
+  margin: 0;
+}
+.left .msg1 {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+.left .msg2 {
+  font-size: 1rem;
+}
+/* -------------------------------------------------- */
+
+/* ------------------------------------------------------- */
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+/* --------------------------------------------------------------- */
+
+
+.AuthorizationChanger{
+    display: flex;
+      justify-content: center;
+      color: #17A2B8;
+      border: 1px solid #17A2B8;
+      width: 350px;
+      height: 20px;
+      border-radius: 20px;
+      padding: 10px;
+      margin: 20px 0;
+}
+.AuthorizationChanger:hover{
+  cursor: pointer;
+}

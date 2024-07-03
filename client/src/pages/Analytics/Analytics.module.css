@@ -1,0 +1,45 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+     margin: 3vh 3vw;
+     font-size: 2rem;
+}
+
+.valueboard{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.group{
+    background-color: #F9FCFF;
+    min-width: 39vw;
+    border-radius: 5px;
+    margin: 3vh 1vw;
+    font-weight: 500;
+}
+
+
+.option{
+    display: flex;
+    flex-direction:row ;
+    justify-content:space-between;
+    margin: 15px 10px;
+}
+
+.circle {
+    width:  10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #90C4CC;
+    margin: 0 10px;
+}
+.name{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

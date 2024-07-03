@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-left: 3vw;
+  height: 100vh;
+}
+
+.heading {
+  width: 77vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+.subHeading {
+  width: 77vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 2vh 0;
+}
+.content{
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  overflow-x: scroll;
+}

@@ -1,0 +1,144 @@
+.container {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #edf5fe;
+  height: 99vh;
+  width: 17vw;
+}
+
+.topDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+.heading {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 40px 0;
+  justify-content: space-around;
+}
+.heading img {
+  margin: 0 5px;
+}
+
+.logout {
+  display: flex;
+  justify-content: start;
+  width: 17vw;
+  margin: 5vh 0;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+.logout img {
+  margin: 0 15px 0 30px;
+}
+.logout:hover {
+  cursor: pointer;
+  background-color: #4391ed1a;
+}
+
+/* -----------------SidebarOptions Styles-------------------- */
+
+.options {
+  display: flex;
+  border-radius: 5px;
+  justify-content: start;
+  align-items: center;
+  width: 17vw;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+.light {
+  background-color: transparent;
+  color: #707070;
+}
+.dark {
+  background-color: #4391ed1a;
+  color: black;
+}
+
+.options img {
+  margin: 0 15px 0 30px;
+}
+
+.options:hover {
+  cursor: pointer;
+  background-color: #4391ed1a;
+}
+
+
+/* ----------------------------------------Logout Modal ----------------------------------------*/
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal:hover{
+  cursor:not-allowed;
+}
+/* Modal Content/Box */
+.modal_content {
+  background-color: #fefefe;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  flex-direction: column;
+}
+.modal_content:hover{
+  cursor: default !important;
+
+}
+
+.logoutButton{
+  display: flex;
+  justify-content: center;
+  border: 1px solid #17A2B8;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width:250px;
+  background-color: #17A2B8;
+  color: white;
+}
+.logoutButton:hover{
+  cursor: pointer;
+}
+
+.cancelButton{
+  display: flex;
+  justify-content: center;
+  border: 1px solid #CF3636;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width:250px;
+  background-color: white;
+  color: #CF3636;
+}
+.cancelButton:hover{
+  cursor: pointer;
+}
